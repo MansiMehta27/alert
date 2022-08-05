@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Button, FormGroup, Input, Label } from 'reactstrap';
 import {useDispatch} from 'react-redux';
 import * as yup from 'yup';
-import { signupAPI } from '../Comman/apis/auth.api';
+import { signupAction } from '../../Redux/Action/auth.action';
 
 function Login(props) {
     const [useType, setUseType] = useState("Login");
@@ -70,7 +70,7 @@ function Login(props) {
                 email:values.email,
                 password:values.password
             }
-            dispatch(signupAPI(data));
+            dispatch(signupAction(data));
         },
     });
 

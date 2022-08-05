@@ -2,7 +2,7 @@ import { all, call, put, takeEvery } from 'redux-saga/effects'
 import { emailverification } from '../Action/auth.action';
 import { signupAPI } from '../../Container/Comman/apis/auth.api';
 import * as ActionTypes from "../Actiontypes";
-import { resetalret, setalret } from '../Action/alert.action';
+import {setalret } from '../Action/alert.action';
 
 function* signUp(action) {
    try {
@@ -12,7 +12,7 @@ function* signUp(action) {
 
       console.log(user);
    } catch (e) {
-      yield put (resetalret({text:e.payload,color :'error'}))
+      yield put (setalret({text:e.payload, color :'error'}))
       yield put({ type: "USER_FETCH_FAILED", message: e.message });
       console.log(e);
    }

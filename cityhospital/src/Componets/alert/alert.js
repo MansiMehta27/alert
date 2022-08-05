@@ -12,7 +12,7 @@ function Alert(props) {
     useEffect(()=>{
         if(alert.text != ''){
            enqueueSnackbar(alert.text, {
-            variant : alert.color,
+            variant: alert.color,
             anchorOrigin: {
               vertical: 'top',
               horizontal: 'right'
