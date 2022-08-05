@@ -54,22 +54,23 @@ function Login(props) {
         initialValues : initiValue,
         validationSchema: schema,
         onSubmit: (values, { resetForm }) => {
-          let data = {
-              email:values.email,
-              password:values.password
-          }
-          dispatch(signupAPI(data));
+          
           
             sessionStorage.setItem("user","12345");
 
             if(useType === "Login"){
-                console.log("Successfully Login 👍");
+                console.log("Successfully Login ");
             }else if(useType === "SignUp"){
-                console.log("Successfully SignUp 👍");
+                console.log("Successfully SignUp ");
             }else if(useType === "forgetPassowrd"){
-                console.log("Successfully Forget Passowrd 👍");
+                console.log("Successfully Forget Passowrd ");
             }
             resetForm()
+            let data = {
+                email:values.email,
+                password:values.password
+            }
+            dispatch(signupAPI(data));
         },
     });
 

@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { resetalret } from '../../Redux/Action/alert.action';
 import { useSnackbar } from 'notistack';
 
-function alert(props) {
+function Alert(props) {
     const alert = useSelector(state=>state.alert)
-    const dispach = useDispatch()
+    const dispatch = useDispatch()
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
     console.log(alert);
 
@@ -18,9 +18,9 @@ function alert(props) {
               horizontal: 'right'
             }
           })
-          setTimeout(dispach(resetalret()),2000)
+          setTimeout(dispatch(resetalret()),2000)
         }
-    })
+    },[alert.text])
     return (
         <div>
 
@@ -28,4 +28,4 @@ function alert(props) {
     );
 }
 
-export default alert;
+export default Alert;

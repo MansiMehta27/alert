@@ -1,10 +1,11 @@
 import * as ActionTypes  from "../Actiontypes";
 const intialstate ={
-   Text: '',
+   text: '',
    color: ''
 }
 
 export const alertReducer=(state = intialstate,action)=>{
+    console.log(action.type,action.payload);
     switch(action.type){
         case ActionTypes.SET_ALRET:
         return{
@@ -16,7 +17,7 @@ export const alertReducer=(state = intialstate,action)=>{
         case ActionTypes.RESET_ALRET:
         return{
              ...state,
-             Text: '',
+             text: '',
              color: ''
         }
         default:
