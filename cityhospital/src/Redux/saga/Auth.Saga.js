@@ -7,7 +7,7 @@ import {setalret } from '../Action/alert.action';
 function* signUp(action) {
    try {
       const user = yield call(signupAPI, action.payload);
-      yield put (setalret({text:user.payload,color:'succes'}))
+      yield put (setalret({text:user.payload,color:'success'}))
       yield put(emailverification(user));
 
       console.log(user);
@@ -17,6 +17,7 @@ function* signUp(action) {
       console.log(e);
    }
 }
+
 function* watchSaga() {
    yield takeEvery(ActionTypes.SIGNUP_USER, signUp);
 }

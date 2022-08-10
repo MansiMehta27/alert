@@ -11,34 +11,32 @@ import Department from "./Container/Departments/Department";
 import Home from "./Container/Home/Home";
 import Login from "./Container/Login/Login";
 import { ThemeProvider } from "./Context/Context";
-import { configurstore } from "./Redux/Store";
+import { configurstore, store } from "./Redux/Store";
 import Privateroute from "./Route/Privateroute.js/Privateroute";
 import Publicroute from "./Route/Publicroute.js/Publicroute";
 import { SnackbarProvider } from 'notistack';
 
 function App() {
-  const store = configurstore();
+  
   return (
     <>
-    <SnackbarProvider maxSnack={3}>
-      <ThemeProvider>
-        <Provider store={store}>
-          <Header />
-
-          <Switch>
-            <Publicroute exact path={"/"} component={Home} />
-            <Privateroute exact path={"/departments"} component={Department} />
-            <Route exact path={"/about"} component={About} />
-            <Publicroute exact path={"/login"} component={Login} />
-            <Route exact path={"/contect"} component={Contect} />
-            <Privateroute exact path={"/bookappointment"} component={Bookappointment} />
-            <Privateroute exact path={"/listappointment"} component={LIstappointment} />
-          </Switch>
-          <Footer />
-        </Provider>
-
-      </ThemeProvider>
-     </SnackbarProvider>
+      <SnackbarProvider maxSnack={3}>
+        <ThemeProvider>
+          <Provider store={store}>
+            <Header />
+            <Switch>
+              <Publicroute exact path={"/"} component={Home} />
+              <Privateroute exact path={"/departments"} component={Department} />
+              <Route exact path={"/about"} component={About} />
+              <Publicroute exact path={"/login"} component={Login} />
+              <Route exact path={"/contect"} component={Contect} />
+              <Privateroute exact path={"/bookappointment"} component={Bookappointment} />
+              <Privateroute exact path={"/listappointment"} component={LIstappointment} />
+            </Switch>
+            <Footer />
+          </Provider>
+          </ThemeProvider>
+      </SnackbarProvider>
     </>
   );
 }

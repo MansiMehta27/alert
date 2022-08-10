@@ -15,3 +15,4 @@ export const configurstore=()=>{
     return store;
    
 }
+export const store = configurstore();

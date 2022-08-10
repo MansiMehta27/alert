@@ -1,6 +1,7 @@
 import * as ActionTypes from "../Actiontypes";
 
 export const setalret =(data)=>(dispatch)=>{
+    console.log(data);
     dispatch({type : ActionTypes.SET_ALRET,payload : data})
 }
 export const resetalret=()=>(dispatch)=>{

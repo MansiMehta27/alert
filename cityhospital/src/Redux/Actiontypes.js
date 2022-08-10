@@ -11,5 +11,6 @@ export const SIGNUP_USER="SIGNUP_USER"
 export const EMAIL_VEREFICATION = "EMAIL_VEREFICATION"
 
 //alert//
+
 export const SET_ALRET ="SET_ALRET"
 export const RESET_ALRET= "RESET_ALRET"

@@ -12,8 +12,7 @@ export const alertReducer=(state = intialstate,action)=>{
              ...state,
              text : action.payload.text,
              color : action.payload.color
-            
-        }
+         }
         case ActionTypes.RESET_ALRET:
         return{
              ...state,

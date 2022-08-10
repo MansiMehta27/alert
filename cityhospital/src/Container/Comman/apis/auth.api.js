@@ -4,7 +4,7 @@ import { auth } from "../../../firebase";
 export const signupAPI=(data)=>{
     console.log(data);
     return new Promise ((resolve,reject)=>{
- createUserWithEmailAndPassword(auth, data.email, data.password)
+   createUserWithEmailAndPassword(auth, data.email, data.password)
   .then((userCredential) => {
   
     const user = userCredential.user;
@@ -23,10 +23,10 @@ export const signupAPI=(data)=>{
       if (user) {
           if(user.emailVerified)
           {
-                resolve({payload : "email sucuessfully"});
+                resolve({payload : "pls email verfiy"});
           }
           else{
-              resolve({payload:"pls email verified"});
+              resolve({payload:"email sucuessfully"});
           }
      } else {
           reject({payload : "something went wrong"});
