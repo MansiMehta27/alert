@@ -1,9 +1,8 @@
-import * as ActionTypes from "../Actiontypes";
+import * as ActionTypes from "../ActionTypes";
 
-export const setalret =(data)=>(dispatch)=>{
-    console.log(data);
-    dispatch({type : ActionTypes.SET_ALRET,payload : data})
+export const setAlert= (data) => (dispatch) =>{
+    dispatch({type: ActionTypes.SET_ALERT, payload:data})
 }
-export const resetalret=()=>(dispatch)=>{
-    dispatch({type:ActionTypes.RESET_ALRET})
+export const resetAlert= () => (dispatch)=>{
+    dispatch({type: ActionTypes.RESET_ALERT})
 }

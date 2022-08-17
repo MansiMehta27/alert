@@ -10,7 +10,7 @@ import Contect from "./Container/Contect/Contect";
 import Department from "./Container/Departments/Department";
 import Home from "./Container/Home/Home";
 import Login from "./Container/Login/Login";
-import { ThemeProvider } from "./Context/Context";
+import { ThemeProvider } from "./context/ThemeContext";
 import { configurstore, store } from "./Redux/Store";
 import Privateroute from "./Route/Privateroute.js/Privateroute";
 import Publicroute from "./Route/Publicroute.js/Publicroute";

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { decrementCounter, incrementCounter } from '../../Redux/Action/Counter.action';
+import { decrementCounter, incrementCounter } from '../../Redux/Action/Counter.Action';
 function About(props) {
     const dispach = useDispatch();
     const c = useSelector(state=>state.counter)

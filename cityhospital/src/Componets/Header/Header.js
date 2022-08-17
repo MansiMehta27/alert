@@ -1,13 +1,22 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-
-import themeContext from '../../Context/Context';
+import ThemeContext from '../../context/ThemeContext';
 import Alert from '../Alert/Alert';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutAction } from '../../Redux/Action/auth.action';
 
 function Header(props) {
-    const theme = useContext(themeContext)
-    
-    console.log(theme.theme)
+    const theme = useContext(ThemeContext)
+    console.log(theme.theme);
+
+    let auth = useSelector(state => state.auth)
+    console.log(auth);
+
+    const dispatch = useDispatch()
+
+    const hendallogout = () => {
+        dispatch(logoutAction())
+    }
     return (
         <div className="main-header">
             <div id="topbar" className={`d-flex align-items-center fixed-top ${theme.theme}`}>
@@ -16,9 +25,8 @@ function Header(props) {
                         <i className="bi bi-envelope" /> <a href="mailto:contact@example.com">cityhospital@example.com</a>
                         <i className="bi bi-phone" /> +91 9988776655
                     </div>
-                    <button onClick={()=>
-                    {theme.toogle_theme(theme.theme)}}>
-                            change theme
+                    <button onClick={() => { theme.toogle_theme(theme.theme) }}>
+                        Change Theme
                     </button>
                     <div className="d-none d-lg-flex social-links align-items-center">
                         <a href="#" className="twitter"><i className="bi bi-twitter" /></a>
@@ -35,7 +43,6 @@ function Header(props) {
                             <h1 className="logo me-auto">City</h1><br />
                             <h2 className="logo-tiny-text me-auto">Multispeciality Hospital</h2>
                         </a>
-                      
                     </div>
                     <nav id="navbar" className="navbar order-last order-lg-0">
                         <ul>
@@ -45,40 +52,45 @@ function Header(props) {
                             </li>
                             <li>
                                 {/* <a className="nav-link scrollto" href="./pages/departments.html">Departments</a> */}
-                                <NavLink exact className="nav-link scrollto" to={"/departments"}>Department</NavLink>
-
+                                <NavLink exact className="nav-link scrollto" to={"/departments"}>Departments</NavLink>
                             </li>
                             <li>
                                 {/* <a className="nav-link scrollto" href="./pages/doctors.html">Doctors</a> */}
-                                <NavLink exact className="nav-link scrollto" to={"/doctors"} >Doctors</NavLink>
+                                <NavLink exact className="nav-link scrollto" to={"/doctors"}>Doctors</NavLink>
                             </li>
                             <li>
-                                {/* <a className="nav-link scrollto " href="./pages/about.html">About</a> */}
-                                <NavLink exact className="nav-link scrollto " to={"/about"} >About</NavLink>
-                            </li>
-                            <li>
-                                {/* <a className="nav-link scrollto" href="./pages/contact.html">Contact</a> */}
-                                <NavLink exact className="nav-link scrollto" to={"/contect"} >Contect </NavLink>
+                                {/* <a className="nav-link scrollto" href="./pages/about.html">About</a> */}
+                                <NavLink exact className="nav-link scrollto" to={"/about"}>About</NavLink>
                             </li>
                             <li>
                                 {/* <a className="nav-link scrollto" href="./pages/contact.html">Contact</a> */}
-                                <NavLink exact className="nav-link scrollto" to={"/medisin"} >medisin </NavLink>
+                                <NavLink exact className="nav-link scrollto" to={"/contact"}>Contact</NavLink>
+                            </li>
+                            <li>
+                                {/* <a className="nav-link scrollto" href="./pages/contact.html">Contact</a> */}
+                                <NavLink exact className="nav-link scrollto" to={"/medicine"}>Medicine</NavLink>
                             </li>
                         </ul>
                         <i className="bi bi-list mobile-nav-toggle" />
                     </nav>
                     {/* <a href="./pages/appointment.html" className="appointment-btn scrollto"><span className="d-none d-md-inline">Make an</span>
                         Appointment</a> */}
-                    <NavLink to={"/bookappointment"} className="appointment-btn scrollto">makeanappointment</NavLink>
-
-                    <a href="#" className="appointment-btn scrollto">
-                        <NavLink to={"/login"} className="appointment-btn scrollto">Login/signup</NavLink>
-                        {/* <span className="d-none d-md-inline">Login/ Signup</span> */}
-
-                    </a>
-
+                    <NavLink exact to={"/bookappointment"} className="appointment-btn scrollto"><span className="d-none d-md-inline">Make An</span> Appointment</NavLink>
+                    {/* <a href="#" className="appointment-btn scrollto">
+                        <span className="d-none d-md-inline">Login/ Signup</span>
+                    </a> */}
+                    {
+                        auth.user === null ?
+                            <NavLink to={"/login"} className="appointment-btn scrollto">
+                                <span className="d-none d-md-inline">Login/ Signup</span>
+                            </NavLink>
+                        :
+                            <NavLink onClick={() => hendallogout()} to={"/login"} className="appointment-btn scrollto">
+                                <span className="d-none d-md-inline">Logout</span>
+                            </NavLink>
+                    }
+                    <Alert />
                 </div>
-                <Alert/>
             </header>
         </div>
 

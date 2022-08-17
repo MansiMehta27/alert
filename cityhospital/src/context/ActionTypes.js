@@ -1,0 +1,2 @@
+
+export const TOOGEL_THEME = "TOOGEL_THEME"
