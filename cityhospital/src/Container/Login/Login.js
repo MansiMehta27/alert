@@ -52,6 +52,7 @@ function Login(props) {
         dispatch(googlesignupAction())
     }
     const dispatch = useDispatch()
+    
     const formik = useFormik({
         initialValues: initiValue,
         validationSchema: schema,
@@ -62,8 +63,7 @@ function Login(props) {
             //LOGIN
             if (useType === "Login") {
                 
-
-                let data = {
+                    let data = {
                     email: values.email,
                     password: values.password
                 }

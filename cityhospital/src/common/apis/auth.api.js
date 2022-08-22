@@ -42,7 +42,6 @@ export const signUpAPI = (data) => {
             });
     })
 }
-
 export const loginAPI = (data) => {
     console.log(data);
     return new Promise((resolve, reject) => {
@@ -65,7 +64,6 @@ export const loginAPI = (data) => {
             })
     })
 }
-
 export const logoutAPI = () => {
     return new Promise((resolve, reject) => {
         signOut(auth)
@@ -77,7 +75,6 @@ export const logoutAPI = () => {
             })
     })
 }
-
 export const googlesignupAPI = () => {
     return new Promise((resolve, reject) => {
         const provider = new GoogleAuthProvider();
@@ -102,7 +99,6 @@ export const googlesignupAPI = () => {
             });
     })
 }
-
 export const forgetPassowrdAPI = (data) => {
     return new Promise((resolve, reject) => {
         sendPasswordResetEmail(auth, data.email)
